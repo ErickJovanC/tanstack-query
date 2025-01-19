@@ -12,7 +12,8 @@ const getCryptoNumber = async (): Promise<number> => {
 function App() {
   const {isLoading, data: number, error, refetch} = useQuery({
     queryKey: ['randomNumber'], // Key para guardar cache y eviar peticiones duplicadas
-    queryFn: getCryptoNumber // (params) => getCryptoNumber(params) // Función que se ejecuta para obtener los datos
+    queryFn: getCryptoNumber, // (params) => getCryptoNumber(params) // Función que se ejecuta para obtener los datos
+    refetchOnWindowFocus: false // No se ejecuta la petición al enfocar la ventana
   })
 
   return (
